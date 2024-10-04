@@ -1,28 +1,42 @@
-Credit Card Fraud Detection Using Machine Learning
-Credit card fraud is a critical issue for financial institutions and their customers, with the challenge being to detect fraudulent transactions in real-time while minimizing false positives. This project focuses on developing a machine learning model to accurately detect fraudulent transactions using a dataset obtained from Kaggle, containing transactions by European cardholders in September 2013.
 
-Project Overview:
-The dataset consists of 284,807 credit card transactions over two days, with 492 identified as fraudulent, resulting in a highly imbalanced class distribution (fraudulent transactions accounting for only 0.172%). All input features are numerical and have undergone Principal Component Analysis (PCA) transformation to ensure confidentiality.
+Credit card fraud poses a major challenge for both financial institutions and their customers. The key difficulty for financial institutions lies in detecting fraudulent transactions in real-time while minimizing false positives.
 
-Key steps in this project include:
+The objective of this project is to build a machine learning model capable of accurately identifying fraudulent credit card transactions while reducing false positive rates. The model is trained on historical data to detect patterns and anomalies that indicate fraudulent behavior. The dataset used for this project was sourced from Kaggle and can be accessed through the following link.
+https://www.google.com/url?q=https%3A%2F%2Fwww.kaggle.com%2Fmlg-ulb%2Fcreditcardfraud%3Fselect%3Dcreditcard.csv"
 
-Exploratory Data Analysis (EDA): Univariate and bivariate analyses were performed, along with outlier detection and removal.
-Handling Class Imbalance: We applied under-sampling techniques to balance the dataset.
-Dimensionality Reduction: Techniques were used for data visualization in lower dimensions.
+The dataset consists of credit card transactions made by European cardholders in September 2013, spanning a two-day period. Out of 284,807 total transactions, 492 were identified as fraudulent, resulting in a highly imbalanced dataset, where the positive class (fraudulent transactions) constitutes just 0.172% of the data.
 
-Model Building: We implemented various classification models including:
-Logistic Regression
-K-Nearest Neighbors (KNN)
-Support Vector Classifier (SVC)
-Decision Tree Classifier
+All input variables in the dataset are numerical and have undergone PCA (Principal Component Analysis) transformation to ensure confidentiality, with the original features and additional background details unavailable. The target variable, 'Class,' is labeled as 1 for fraud and 0 for non-fraudulent transactions.
 
-Model Evaluation: Models were evaluated using cross-validation, ROC AUC scores, confusion matrices, and more to find the best fit. We found that SVC and Logistic Regression had the best performance, with SVC having a higher ROC AUC score.
+We began with an in-depth exploratory data analysis (EDA), performing both univariate and bivariate analysis for all features. Given the significant class imbalance, we applied under-sampling techniques to balance the dataset.
 
-Evaluation Metrics:
-Cross-validation Score
-ROC AUC Score
-ROC Curve
-Confusion Matrix
-Classification Report
-Average Precision Score
-Area Under Precision-Recall Curve
+To evaluate the relationships between features, we used a correlation heatmap. Additionally, outliers were identified and removed using boxplots.
+
+Due to the high dimensionality of the dataset, visualizing patterns beyond three dimensions is challenging. To overcome this, we applied dimensionality reduction techniques to visualize the data effectively.
+
+Since this is a classification problem, we implemented several classification models and evaluated them using cross-validation scores to determine the best fit for our data.
+Some of the models that we have used are:
+
+-LogisticRegression
+
+-KNeighborsClassifier
+
+-Support Vector Classifier
+
+-DecisionTreeClassifier
+
+We have used sklearn cross_val_score to compare model performances, for this we have checked which model has best mean average accuracy over given number of folds. We tried to look for the best set of paramters for models using gridsearch.
+
+We have used these to evaluate our model:
+
+-Cross_val_score
+
+-ROC AUC Score
+
+-ROC Curve
+
+-Confusion Matrix, Classification report
+
+-Average precison score, Area under precision recall curve
+
+And we found out that SVC and Logistic regression have best cross validation score. Also, we observed that SVC has better ROC AUC Score.
